@@ -15,7 +15,7 @@ class Settings:
     log_file = '/home/minecraft/server/logs/latest.log'
     log_offset = '/home/minecraft/server/logs/latest.log.offset'
     # Local database
-    database = '/home/minecraft/.virtualenvs/mc-bot/excraftbuff.db'
+    database = './db.db'
     # TG Users:MC users
     mc_users = {
         'photopiter': 'spaut'
