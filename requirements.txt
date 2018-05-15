@@ -1,0 +1,6 @@
+certifi==2018.4.16
+future==0.16.0
+pygtail==0.8.0
+PySocks==1.6.8
+python-telegram-bot==10.1.0
+urllib3===dev
