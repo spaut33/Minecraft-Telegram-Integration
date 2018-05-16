@@ -301,7 +301,7 @@ def send_to_telegram(bot, action, data):
     elif action == 'death':
         text = '{} _умер!_'.format(data[4])
     elif action == 'advancement':
-        text = '{} _получил ачивку [{}]_'.format(data[4], data[6])
+        text = '{} _получил ачивку [{}]_'.format(data[4], data[7])
     elif action == 'login':
         text = '{} _вошел в игру_'.format(data[4])
     elif action == 'logout':
