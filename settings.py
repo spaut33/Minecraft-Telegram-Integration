@@ -15,7 +15,7 @@ class Settings:
     log_file = '/home/minecraft/server/logs/latest.log'
     log_offset = '/home/minecraft/server/logs/latest.log.offset'
     # Local database
-    database = '/home/minecraft/.virtualenvs/mc-bot/excraftbuff.db'
+    database = './db.db'
     # TG Users:MC users
     mc_users = {
         'photopiter': 'spaut'
@@ -46,7 +46,7 @@ class Settings:
         # DedicatedServer]: spaut§r has made the advancement
         # §r§a[§r§aIsn't It Iron Pick§r§a]§r
         'advancement': re.compile(datetime_prefix +
-                                  '.+: ([A-z0-9]*).+ has made|reached the advancement|goal.+\[(§.§.)?(.*)§(.§.)?\]'),
+                                  '.+: ([A-z0-9]*).+ has (made|reached) the (advancement|goal) §.§.?\[§.§.?(.*)§.§.?\]'),
         # spaut has reached the goal [Fizzing Electrodes]
         # [18:00:58] [Server thread/INFO] [net.minecraft.server.dedicated.
         # DedicatedServer]: <§2Iworb§r> §rхв§r
