@@ -38,10 +38,10 @@ class Settings:
         # MinecraftServer]: Stopping server
         'server_stop': re.compile(datetime_prefix +
                                   '\[Server Shutdown Thread/INFO\].+ Stopping server'),
-        # [17:07:46] [Server thread/INFO] [Sponge]:
-        # Loading world [world] (overworld)
+        # [10:02:02] [Server thread/INFO] [FML]: Loading dimension 0 (world)
+        # (net.minecraft.server.dedicated.DedicatedServer@7facf5fd)
         'server_start': re.compile(datetime_prefix +
-                                   '.+: Loading world \[world\] \(overworld\)?'),
+                                   '.+: Loading dimension 0 \(world\)?'),
         # [21:24:36] [Server thread/INFO] [net.minecraft.server.dedicated.
         # DedicatedServer]: spaut§r has made the advancement
         # §r§a[§r§aIsn't It Iron Pick§r§a]§r
