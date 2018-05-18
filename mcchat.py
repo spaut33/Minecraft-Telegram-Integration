@@ -9,6 +9,7 @@ from subprocess import check_output, run, PIPE
 from datetime import datetime
 import sqlite3
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.error import Unauthorized
 from telegram import ParseMode
 from settings import Settings
 
@@ -297,7 +298,7 @@ def send_to_telegram(bot, action, data):
     if action == 'server_stop':
         text = '`Сервер остановлен!`'
     elif action == 'server_start':
-        text = '`Сервер запущен!`'
+        text = '`Сервер стартовал!`'
     elif action == 'death':
         text = '{} _умер!_'.format(data[4])
     elif action == 'advancement':
@@ -309,8 +310,12 @@ def send_to_telegram(bot, action, data):
     elif action == 'chat_message':
         text = '{}: _{}_'.format(data[5], data[7])
     for chat_id in all_chats:
-        bot.send_message(chat_id=chat_id,
-                         text=text, parse_mode=ParseMode.MARKDOWN)
+        try:
+            bot.send_message(chat_id=chat_id,
+                             text=text, parse_mode=ParseMode.MARKDOWN)
+        except Unauthorized:
+            logger.warn('User {} banned our bot, going to unsubscribe him'.format(chat_id))
+            _db_update('DELETE FROM chat_subscribe WHERE uid=\'{}\''.format(chat_id))
 
 
 def main():
